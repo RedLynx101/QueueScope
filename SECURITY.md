@@ -2,19 +2,23 @@
 
 ## Supported versions
 
-QueueScope has not yet published a public release. Security support begins with the first tagged release.
+Security fixes are provided for the latest `0.1.x` alpha until a newer release line replaces it.
 
 ## Reporting a vulnerability
 
-Once the repository is public, report vulnerabilities through GitHub's private vulnerability reporting feature rather than a public issue. Do not include credentials, tokens, queue identifiers, or captured private page data in an issue.
+Use GitHub private vulnerability reporting. Do not open a public issue containing credentials, tokens, queue identifiers, private page captures, or session material.
 
-## Scope
+Include the affected version, browser/version, reproduction steps using synthetic data where possible, security impact, and any suggested mitigation. Please allow a reasonable remediation window before public disclosure.
 
-High-priority reports include:
+## High-priority scope
 
 - Browser-permission escalation.
 - Credential, cookie, session, or browsing-data exposure.
-- Remote-code execution.
-- Unsafe refresh behavior after a queue or challenge signal.
+- Remote-code execution or unexpected network transmission.
+- Unsafe guarded refresh after configured queue or challenge evidence.
+- Admission without prior queue evidence.
 - Cross-origin observation outside a user-granted permission.
-- Leakage of locally stored watch or run history.
+- Leakage or corruption of locally stored watch/run history.
+- An extension action that becomes consequential on the observed page.
+
+General feature requests and rule-authoring questions belong in normal issues after the repository is public.
