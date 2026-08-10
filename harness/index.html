@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/png" href="/icons/icon-32.png" />
+    <title>QueueScope · Queue Lab</title>
+  </head>
+  <body>
+    <main>
+      <header><div class="lab-brand"><div class="scope-mark"><i/></div><div><strong>QueueScope</strong><span>QUEUE LAB</span></div></div><div class="local-pill">SYNTHETIC · LOCAL</div></header>
+      <section class="lab-console">
+        <div class="radar"><span class="sweep"></span><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="lab-node" id="lab-node"></div><div class="center"><strong id="stage-code">01</strong><span>STATE</span></div></div>
+        <div class="stage-copy"><span class="kicker">CONTROLLED REHEARSAL</span><h1 id="stage-title">Product page observed</h1><p id="stage-body">The page is loaded and no configured attention signal is present.</p><div class="telemetry"><div><span>CLASSIFICATION</span><strong id="classification">product</strong></div><div><span>POSITION</span><strong id="position">—</strong></div><div><span>PROVIDER ETA</span><strong id="eta">—</strong></div></div></div>
+      </section>
+      <nav class="stage-controls" aria-label="Queue Lab stages">
+        <button data-stage="product" class="active"><span>01</span><strong>Product</strong><small>Baseline page</small></button>
+        <button data-stage="queue"><span>02</span><strong>Queue</strong><small>Lock navigation</small></button>
+        <button data-stage="challenge"><span>03</span><strong>Challenge</strong><small>Manual attention</small></button>
+        <button data-stage="available"><span>04</span><strong>Available</strong><small>Visible selector</small></button>
+        <button data-stage="admitted"><span>05</span><strong>Admitted</strong><small>After queue only</small></button>
+      </nav>
+      <aside class="explanation"><strong>What this proves</strong><p>Queue Lab uses the same local rule engine as attached pages. Move through the stages, then inspect the live run in QueueScope. No external site or network service is involved.</p></aside>
+      <div id="signal" aria-live="polite">A neutral product page is visible.</div>
+      <button id="available-control" data-queuescope-available="false" disabled>Configured action</button>
+    </main>
+    <script type="module" src="/harness/lab.ts"></script>
+  </body>
+</html>
