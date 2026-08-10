@@ -40,6 +40,15 @@ try {
   await dashboard.goto(`chrome-extension://${id}/dashboard.html`);
   await dashboard.getByRole("heading", { name: "Observe the moment. Preserve the tab." }).waitFor();
   if ((await dashboard.title()) !== "QueueScope") throw new Error("Dashboard tab title is not QueueScope.");
+  const dashboardBrand = await dashboard.locator(".brand-mark img").first().evaluate((image) => ({
+    complete: image.complete,
+    naturalWidth: image.naturalWidth,
+    naturalHeight: image.naturalHeight,
+    file: new URL(image.src).pathname
+  }));
+  if (!dashboardBrand.complete || dashboardBrand.naturalWidth !== 128 || dashboardBrand.naturalHeight !== 128 || dashboardBrand.file !== "/icons/icon-128.png") {
+    throw new Error(`Dashboard did not render the canonical app icon: ${JSON.stringify(dashboardBrand)}`);
+  }
   await dashboard.screenshot({ path: join(results, "command-center.png"), fullPage: true });
 
   await dashboard.getByRole("button", { name: "Queue Lab", exact: true }).click();
@@ -61,6 +70,15 @@ try {
   }
   if (!lab) throw new Error(`Queue Lab tab was not exposed to Playwright. Pages: ${context.pages().map((page) => page.url()).join(", ")}`);
   await lab.getByRole("heading", { name: "Product page observed" }).waitFor();
+  const labBrand = await lab.locator(".scope-mark img").evaluate((image) => ({
+    complete: image.complete,
+    naturalWidth: image.naturalWidth,
+    naturalHeight: image.naturalHeight,
+    file: new URL(image.src).pathname
+  }));
+  if (!labBrand.complete || labBrand.naturalWidth !== 128 || labBrand.naturalHeight !== 128 || labBrand.file !== "/icons/icon-128.png") {
+    throw new Error(`Queue Lab did not render the canonical app icon: ${JSON.stringify(labBrand)}`);
+  }
   await lab.getByRole("button", { name: /Queue Lock navigation/ }).click();
   await lab.getByRole("heading", { name: "Waiting room detected" }).waitFor();
   await lab.screenshot({ path: join(results, "queue-lab-waiting.png"), fullPage: true });
@@ -92,7 +110,7 @@ try {
   const footer = await panel.locator(".panel-footer").boundingBox();
   const viewport = panel.viewportSize();
   if (!footer || !viewport || Math.abs(footer.y + footer.height - viewport.height) > 2) throw new Error("Side-panel footer is not pinned to the viewport.");
-  await panel.screenshot({ path: join(results, "side-panel.png"), fullPage: true });
+  await panel.screenshot({ path: join(results, "side-panel.png") });
 
   const panelWatchName = "Synthetic recurring watch";
   const savedWatch = await dashboard.evaluate(async (name) => {
@@ -118,8 +136,22 @@ try {
   await panelCopy.getByTitle("Delete watch").click();
   await panelCopy.waitFor({ state: "detached" });
   await panel.waitForTimeout(4_200);
-  await panel.evaluate(() => window.scrollTo({ top: 0, left: 0, behavior: "instant" }));
-  await panel.screenshot({ path: join(results, "side-panel-watches.png"), fullPage: true });
+  await panel.goto(`chrome-extension://${id}/sidepanel.html`);
+  await panel.getByRole("button", { name: "Watches", exact: true }).evaluate((button) => button.click());
+  await panel.locator(".watch-card").filter({ hasText: panelWatchName }).waitFor();
+  await panel.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  const watchViewport = await panel.evaluate(() => ({
+    scrollY: window.scrollY,
+    documentTop: document.documentElement.scrollTop,
+    bodyTop: document.body.scrollTop,
+    visualTop: window.visualViewport?.pageTop ?? 0
+  }));
+  if (Object.values(watchViewport).some((value) => Math.abs(value) > 1)) throw new Error(`Side-panel watch viewport was not reset: ${JSON.stringify(watchViewport)}`);
+  const watchHeader = await panel.locator(".panel-header").boundingBox();
+  if (!watchHeader || Math.abs(watchHeader.y) > 2) throw new Error(`Side-panel watch capture retained a ${watchHeader?.y ?? "missing"}px header offset.`);
+  const watchFooter = await panel.locator(".panel-footer").boundingBox();
+  if (!watchFooter || !viewport || Math.abs(watchFooter.y + watchFooter.height - viewport.height) > 2) throw new Error("Side-panel watch footer is not pinned to the viewport.");
+  await panel.screenshot({ path: join(results, "side-panel-watches.png") });
 
   await dashboard.getByRole("button", { name: "Watches", exact: true }).click();
   await dashboard.getByRole("button", { name: "New watch" }).click();

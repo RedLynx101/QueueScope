@@ -1,4 +1,4 @@
-# v0.1.0 release checklist
+# v0.1.1 release checklist
 
 ## Source and trust boundary
 
@@ -25,7 +25,8 @@
 - [x] Production artifact verifier passes.
 - [x] Disposable-profile unpacked-extension E2E passes.
 - [x] Side panel reviewed at 420×840.
-- [x] Screenshots regenerated from v0.1.0 and manually reviewed.
+- [x] Canonical transparent app icon rendered consistently across all extension surfaces.
+- [x] Screenshots regenerated from v0.1.1 and manually reviewed.
 - [x] Dependency audit reports zero vulnerabilities.
 - [x] Security, CSP, permissions, secret, and neutrality reviews complete.
 
