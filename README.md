@@ -12,7 +12,7 @@ This is the retailer-neutral public edition. It contains no site-specific adapte
 
 ![QueueScope command center](assets/screenshots/command-center.png)
 
-## What works in v0.1.0
+## What works in v0.1.1
 
 - One-time, daily, weekday, weekend, and custom-weekday schedules.
 - Passive watches with user-controlled cadence and no attempt ceiling.
@@ -54,7 +54,7 @@ Queue Lab proves product, queue, challenge, availability, position/ETA, and post
 
 ### From the release archive
 
-1. Download `QueueScope-0.1.0-unpacked.zip` from the release assets.
+1. Download `QueueScope-0.1.1-unpacked.zip` from the release assets.
 2. Extract it to a permanent local folder.
 3. Open your Chromium browser's extensions page (for Chrome, `chrome://extensions`).
 4. Enable **Developer mode**.
@@ -117,7 +117,7 @@ See [Privacy and safety](docs/PRIVACY_AND_SAFETY.md), [Architecture](docs/ARCHIT
 
 ## Validation
 
-The v0.1.0 release gate covers:
+The v0.1.1 release gate covers:
 
 - ESLint and TypeScript.
 - 26 deterministic unit tests.
@@ -131,7 +131,7 @@ The detailed evidence is in [Test report](docs/TEST_REPORT.md), [Security review
 
 ## Project status
 
-v0.1.0 is a functional developer-mode alpha. The private repository is ready for its owner to review and manually change to public. The current scope intentionally favors transparent, user-authored visible-page rules over bundled site integrations.
+v0.1.1 is a functional developer-mode alpha. The private repository is ready for its owner to review and manually change to public. The current scope intentionally favors transparent, user-authored visible-page rules over bundled site integrations.
 
 - [Plan and completed scope](PLAN.md)
 - [Changelog](CHANGELOG.md)

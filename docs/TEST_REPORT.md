@@ -1,4 +1,4 @@
-# v0.1.0 test report
+# v0.1.1 test report
 
 Date: 2026-08-10  
 Environment: Windows, Node.js 24.11.1, disposable Chromium profile, 1440×1000 dashboard, 420×840 side panel.
@@ -19,6 +19,7 @@ Environment: Windows, Node.js 24.11.1, disposable Chromium profile, 1440×1000 d
 
 - Loaded the production `dist` folder in a new temporary Chromium profile.
 - Opened the dashboard with tab title `QueueScope`.
+- Confirmed the dashboard and standalone Queue Lab render the packaged `/icons/icon-128.png` asset at its canonical 128×128 intrinsic dimensions.
 - Confirmed the Queue Lab orbit marker remained within 3 CSS pixels of the orbit radius.
 - Opened the synthetic Queue Lab and transitioned from product to queue.
 - Persisted classification `queue`, position `428`, and provider ETA `00:08:30`.
@@ -29,11 +30,11 @@ Environment: Windows, Node.js 24.11.1, disposable Chromium profile, 1440×1000 d
 - Confirmed side-panel footer was pinned to the viewport bottom.
 - Seeded a future watch in the side panel, toggled auto-start, copied it as a paused watch, and deleted the copy.
 - Opened the watch builder and confirmed passive mode displays no attempt ceiling.
-- Captured browser-generated release screenshots without console/page errors.
+- Captured browser-generated release screenshots without console/page errors, with side-panel header and footer geometry asserted before capture.
 
 ## Manual visual review
 
-Reviewed command center, expanded live run, Queue Lab overview, Queue Lab waiting state, watch builder, and 420×840 side panel at original resolution. Verified hierarchy, no clipped status indicators, collapsed-card density, pinned panel footer, and responsive orbit alignment. The screenshots tracked in `assets/screenshots` are the reviewed release captures.
+Reviewed command center, expanded live run, Queue Lab overview, Queue Lab waiting state, watch builder, and both 420×840 side-panel states at original resolution. Verified canonical icon consistency, hierarchy, no clipped status indicators, collapsed-card density, complete panel headers, pinned panel footers, and responsive orbit alignment. The screenshots tracked in `assets/screenshots` are the reviewed release captures.
 
 ## Boundaries
 

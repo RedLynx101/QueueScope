@@ -1,4 +1,4 @@
-# v0.1.0 security review
+# v0.1.1 security review
 
 Date: 2026-08-10
 

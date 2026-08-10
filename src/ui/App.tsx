@@ -108,7 +108,7 @@ export function App() {
     void act({ type: "SAVE_WATCH", watch: copy }, "Paused copy saved.");
   }
 
-  if (!snapshot) return <div className="boot-screen"><div className="brand-mark"><span/></div><p>Establishing local scope…</p></div>;
+  if (!snapshot) return <div className="boot-screen"><BrandMark/><p>Establishing local scope…</p></div>;
   if (editor && !panel) return <AppFrame panel={false} page="watches" setPage={setPage} mobileNav={mobileNav} setMobileNav={setMobileNav}><WatchEditor initial={editor} onCancel={() => setEditor(undefined)} onSave={saveWatch}/></AppFrame>;
 
   const currentNav = panel ? panelNav : nav;
@@ -129,14 +129,15 @@ export function App() {
 }
 
 function AppFrame({ panel, page, setPage, mobileNav, setMobileNav, children }: { panel: boolean; page: Page; setPage: (page: Page) => void; mobileNav: boolean; setMobileNav: (open: boolean) => void; children: React.ReactNode }) {
-  if (panel) return <div className="panel-shell"><PanelHeader onMenu={() => setMobileNav(!mobileNav)}/>{mobileNav && <div className="panel-menu">{panelNav.map((item) => <NavButton key={item.id} item={item} active={page === item.id} onClick={() => { setPage(item.id); setMobileNav(false); }}/>) }<button onClick={() => void send({ type: "OPEN_DASHBOARD" })}><PanelRightOpen size={16}/>Command center</button></div>}<main className="panel-content">{children}</main><footer className="panel-footer"><ShieldCheck size={13}/><span>Safety lock ready</span><span>v0.1.0</span></footer></div>;
+  if (panel) return <div className="panel-shell"><PanelHeader onMenu={() => setMobileNav(!mobileNav)}/>{mobileNav && <div className="panel-menu">{panelNav.map((item) => <NavButton key={item.id} item={item} active={page === item.id} onClick={() => { setPage(item.id); setMobileNav(false); }}/>) }<button onClick={() => void send({ type: "OPEN_DASHBOARD" })}><PanelRightOpen size={16}/>Command center</button></div>}<main className="panel-content">{children}</main><footer className="panel-footer"><ShieldCheck size={13}/><span>Safety lock ready</span><span>v0.1.1</span></footer></div>;
   return <div className="app-shell"><aside className="sidebar"><Brand/>
     <nav>{nav.map((item) => <NavButton key={item.id} item={item} active={page === item.id} onClick={() => setPage(item.id)}/>)}</nav>
     <div className="sidebar-foot"><div className="privacy-chip"><ShieldCheck size={16}/><div><strong>Local-first</strong><span>No remote backend</span></div></div><a href="https://github.com/RedLynx101/QueueScope" target="_blank" rel="noreferrer"><BookOpen size={15}/>Documentation</a></div>
   </aside><main className="main-content">{children}</main></div>;
 }
 
-function Brand() { return <div className="brand"><div className="brand-mark"><span/></div><div><strong>QueueScope</strong><small>LOCAL OBSERVER</small></div></div>; }
+function BrandMark() { return <span className="brand-mark" aria-hidden="true"><img src="/icons/icon-128.png" alt=""/></span>; }
+function Brand() { return <div className="brand"><BrandMark/><div><strong>QueueScope</strong><small>LOCAL OBSERVER</small></div></div>; }
 function PanelHeader({ onMenu }: { onMenu: () => void }) { return <header className="panel-header"><Brand/><div><button className="icon-button" onClick={() => void send({ type: "OPEN_DASHBOARD" })} title="Open command center"><PanelRightOpen size={17}/></button><button className="icon-button" onClick={onMenu} title="Menu"><Menu size={18}/></button></div></header>; }
 function NavButton({ item, active, onClick }: { item: typeof nav[number]; active: boolean; onClick: () => void }) { const Icon = item.icon; return <button className={active ? "nav-button active" : "nav-button"} onClick={onClick}><Icon size={18}/><span>{item.label}</span>{item.id === "runs" && <i/>}</button>; }
 

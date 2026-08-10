@@ -11,7 +11,7 @@ for (const file of required) await access(resolve(root, file));
 
 const manifest = JSON.parse(await readFile(resolve(root, "manifest.json"), "utf8"));
 if (manifest.manifest_version !== 3) throw new Error("Release manifest is not MV3.");
-if (manifest.version !== "0.1.0") throw new Error("Release manifest version does not match 0.1.0.");
+if (manifest.version !== "0.1.1") throw new Error("Release manifest version does not match 0.1.1.");
 if (!Array.isArray(manifest.optional_host_permissions) || manifest.optional_host_permissions.length !== 2) throw new Error("Origin access is not optional and bounded as expected.");
 if (manifest.content_scripts) throw new Error("Public build must not inject globally declared content scripts.");
 

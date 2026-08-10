@@ -1,6 +1,6 @@
 {
   "name": "queuescope",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Retailer-neutral local-first browser operations console for scheduled page observation and virtual-queue awareness.",
   "type": "module",
