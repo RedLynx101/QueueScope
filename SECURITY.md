@@ -18,4 +18,3 @@ High-priority reports include:
 - Unsafe refresh behavior after a queue or challenge signal.
 - Cross-origin observation outside a user-granted permission.
 - Leakage of locally stored watch or run history.
-

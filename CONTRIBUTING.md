@@ -12,4 +12,3 @@ Once public development begins, changes should:
 - Keep adapters capability-bounded and documented.
 
 Detailed development commands will be added with the first implementation phase.
-

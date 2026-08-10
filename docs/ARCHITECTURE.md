@@ -54,4 +54,3 @@ Manifest V3 service workers are ephemeral. QueueScope must rebuild alarms, obser
 ## Test architecture
 
 The demo lab is the reference provider. It exposes deterministic visible state markers and verifies that the production extension can move through the full state machine without external traffic. Release validation uses a disposable browser profile and manually reviewed screenshots.
-

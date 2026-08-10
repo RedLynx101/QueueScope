@@ -435,4 +435,3 @@ The owner should not make the repository public until all items below are comple
 3. Whether the first public release is a functional alpha or a documented architecture preview.
 4. Whether to publish a Chrome Web Store listing or keep installation developer-only initially.
 5. Whether anonymous local diagnostics should ever be added; the default recommendation is no telemetry.
-

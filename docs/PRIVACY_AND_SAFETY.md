@@ -44,4 +44,3 @@ The UI must distinguish:
 - A ticket identifier from a count of people ahead.
 - Confirmed availability from an ambiguous page signal.
 - Unknown data from zero.
-
