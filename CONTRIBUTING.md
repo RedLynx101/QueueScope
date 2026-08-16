@@ -1,6 +1,6 @@
 # Contributing
 
-QueueScope welcomes retailer-neutral fixes, tests, documentation, accessibility work, and capability-bounded generic features after the repository becomes public.
+QueueScope welcomes retailer-neutral fixes, tests, documentation, accessibility work, and capability-bounded generic features.
 
 ## Local setup
 
