@@ -21,4 +21,4 @@ Include the affected version, browser/version, reproduction steps using syntheti
 - Leakage or corruption of locally stored watch/run history.
 - An extension action that becomes consequential on the observed page.
 
-General feature requests and rule-authoring questions belong in normal issues after the repository is public.
+General feature requests and rule-authoring questions belong in normal GitHub issues.
