@@ -131,7 +131,7 @@ The detailed evidence is in [Test report](docs/TEST_REPORT.md), [Security review
 
 ## Project status
 
-v0.1.1 is a functional developer-mode alpha. The private repository is ready for its owner to review and manually change to public. The current scope intentionally favors transparent, user-authored visible-page rules over bundled site integrations.
+v0.1.1 is a functional developer-mode alpha in a public, retailer-neutral repository. The current scope intentionally favors transparent, user-authored visible-page rules over bundled site integrations.
 
 - [Plan and completed scope](PLAN.md)
 - [Changelog](CHANGELOG.md)
