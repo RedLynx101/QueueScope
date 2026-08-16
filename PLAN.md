@@ -2,7 +2,7 @@
 
 ## Objective
 
-Ship a real, installable, retailer-neutral QueueScope alpha without publishing site-specific integrations, production captures, private queue research, or operational repository history. Keep this repository private until the owner completes the visibility change manually.
+Ship and maintain a real, installable, retailer-neutral QueueScope alpha without publishing site-specific integrations, production captures, private queue research, or operational repository history.
 
 ## Trust boundary
 
@@ -62,9 +62,8 @@ Ship a real, installable, retailer-neutral QueueScope alpha without publishing s
 - [x] Side panel reviewed at 420×840 with pinned footer and collapsed run.
 - [x] README screenshots regenerated from the release build and reviewed.
 - [x] MIT license selected and present.
-- [x] Repository remains private for owner review.
-- [ ] Owner manually changes visibility to public.
-- [ ] Owner verifies the anonymous public view and repository settings after publication.
+- [x] Repository is public.
+- [x] Anonymous README, images, release assets, and repository settings reviewed after publication.
 
 ## Post-alpha roadmap (not a publication blocker)
 
