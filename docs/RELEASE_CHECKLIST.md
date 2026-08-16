@@ -36,6 +36,5 @@
 - [x] CI workflow present.
 - [x] Release archive and SHA-256 generated.
 - [x] README install, usage, safety, and validation instructions current.
-- [x] Repository remains private.
-- [ ] Owner changes visibility to public.
-- [ ] Owner checks anonymous README/images and enables desired repository settings.
+- [x] Repository is public.
+- [x] Anonymous README, images, release assets, and repository settings checked after publication.
